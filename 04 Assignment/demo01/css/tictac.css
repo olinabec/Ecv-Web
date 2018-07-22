@@ -1,0 +1,8 @@
+.position{
+    border:3px solid pink;
+    width:60px;
+    height: 60px;
+    background-color: orange;
+    display:inline-block;
+    margin:5px;
+  }

@@ -18,6 +18,8 @@ $.addEventListener("DOMContentLoaded", function()
 
     sumButton.addEventListener("click", ()=>
     {
+        var first = $.getElementById("first_number");
+        console.log("first", first.value);
         firstNumber = $.getElementById("first_number").value;
         secondNumber = $.getElementById("second_number").value;
         if(firstNumber != "" && secondNumber !="")

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <div id="Container"></div>
+</body>
+<script>
+    $.get("https://randomuser.me/api?results=10", function(data, status, dataType){
+    console.log(data);
+    if(status == "success")
+    {
+        const {results} = data;
+        results.forEach(x => {
+            var firstName = x.name.first;
+            var lastName = x.name.last;
+
+            $("#Container").append("<p>FirstName = " + firstName + " LastName = " + lastName + "</p>");
+        });
+    }
+    });
+</script>
+</html>
