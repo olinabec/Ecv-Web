@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+
+    
+    <!-- <div ng-app="myApp" ng-controller="myCtrl"  data-ng-init="case1 = {title:'title1',content='content1'}" data-ng-init="case2 = {title:'title2',content='content2'}" data-ng-init="todoList=[case1,case2]"> -->
+            <div ng-app="myApp" ng-controller="myCtrl">
+        <div>
+            Title: <input ng-model="title" />
+        </div>
+        <div>
+            Content:<textarea ng-model="content"></textarea>
+        </div>
+        <div>
+            <button ng-click="addToList()">Add</button>
+        </div>
+        <div>
+                <ul>
+                        <li data-ng-repeat="x in todoList">
+                          {{x.title}}
+                          {{x.content2}}
+                          {{ {...x}.title }}
+                          {{ {...x}.content2 }}
+                        </li>
+                </ul>
+        </div>
+        <h1>你输入了: {{content}}</h1>
+    </div>
+
+    <script>
+            var app = angular.module('myApp', []);
+            var case1 = {title:'title1',content='content1'}
+            var case2 = {title:'title2',content='content2'}
+           
+            app.controller('myCtrl', function($scope) {
+                $scope.title = "new Title";
+                $scope.content = "new Content";
+                $scope.todoList=[case1,case2]
+
+                $scope.addToList = function() {
+                    newCase = {title,content}; 
+                    $scope.todoList.push(newCase)
+                }
+
+            });
+    </script>
+
+    
+</body>
+</html>

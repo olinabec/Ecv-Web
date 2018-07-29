@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script> -->
+</head>
+<body>
+        <div ng-app="myApp" ng-controller="myCtrl">
+                <div>
+                        <span class="label label-default">Default Label</span><lable class="label label-default">Title:</lable><input type="text" ng-model="title"><br>
+                </div>
+                <div>
+                        <lable>Content:</lable> <textarea type="text" ng-model="content"></textarea>
+                </div>
+                <lable>New todo item:</lable> {{title + " " + content}}
+                <div>
+                    <button ng-click="addToList()" class="btn">Add</button>
+                </div>
+                <div>
+                    <ul>
+                        <li data-ng-repeat="x in todoList">
+                            {{x}}
+                            {{x.title}}
+                            {{x.content}}
+                            {{ {...x}.title }}
+                            {{ {...x}.content }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+                
+                <script>
+                    var app = angular.module('myApp', []);
+                    app.controller('myCtrl', function($scope) {
+                        $scope.title = "John";
+                        $scope.content = "Doe";
+                        item = {title : $scope.title, content : $scope.content};
+                        item2 = {title: "Title2", content : "Content2"};
+                        $scope.toDoList = [item, item2];
+
+                        $scope.addToList = function() {
+                        newItem = {title:$scope.title, content: $scope.content}; 
+                        $scope.todoList.push(newItem)
+                        }
+                    });
+                </script>
+</body>
+</html>
