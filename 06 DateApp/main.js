@@ -2,8 +2,6 @@ var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope) {
     $scope.isMaleSelected = false;
     $scope.isFemaleSelected = false;
-
-
     $scope.loadPersonList = function load(){
         $scope.personList = [];
         $('#content').empty();
@@ -24,28 +22,30 @@ app.controller('myCtrl', function($scope) {
                             idValue : element.id.value,
                             picture : element.picture.large
                     }
-
+                    
+                    let displayInformation =  '$("#content").append("<div>"  + person.name + "</div><div>" + person.gender + "</div><div>" + person.age + "</div><div>" + person.email + "</div><div>" + person.address + "</div><div>" + person.idName + "</div><div>" + person.idValue + "</div>")';
+                    let displayPicture = '$("#content").append("<a href=Detail.html?id=" + person.idValue + " target=_self ><img src=" + person.picture + "></a>")';
                     debugger;
                     if($scope.isMaleSelected && person.gender == "male")
                     {
                         $scope.personList.push(person);
                         
-                        $('#content').append("<div>"  + person.name + "</div><div>" + person.gender + "</div><div>" + person.age + "</div><div>" + person.email + "</div><div>" + person.address + "</div><div>" + person.idName + "</div><div>" + person.idValue + "</div>")
-                        $('#content').append("<a href='Detail.html?id=" + person.idValue + " target='_self' ><img src=" + person.picture + "></a>")
+                        eval(displayInformation);
+                        eval(displayPicture);
                     }
                     else if($scope.isFemaleSelected && person.gender == "female")
                     {
                         $scope.personList.push(person);
 
-                        $('#content').append("<div>"  + person.name + "</div><div>" + person.gender + "</div><div>" + person.age + "</div><div>" + person.email + "</div><div>" + person.address + "</div><div>" + person.idName + "</div><div>" + person.idValue + "</div>")
-                        $('#content').append("<a href='Detail.html?id=" + person.idValue + " target='_self' ><img src=" + person.picture + "></a>")
+                        eval(displayInformation);
+                        eval(displayPicture);
                     }
                     else
                     {
                         $scope.personList.push(person);
 
-                        $('#content').append("<div>"  + person.name + "</div><div>" + person.gender + "</div><div>" + person.age + "</div><div>" + person.email + "</div><div>" + person.address + "</div><div>" + person.idName + "</div><div>" + person.idValue + "</div>")
-                        $('#content').append("<a href='Detail.html?id=" + person.idValue + " target='_self' ><img src=" + person.picture + "></a>")
+                        eval(displayInformation);
+                        eval(displayPicture);
                     }
                 });
             })
