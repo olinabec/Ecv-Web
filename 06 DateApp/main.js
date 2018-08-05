@@ -29,8 +29,8 @@ app.controller('myCtrl', function($scope) {
 
                 $scope.personList.push(person);
 
-                $('#content').append("<div>"  + person.name + " " + person.gender + " " + person.age + " " + person.email + " " + person.address + " " + person.idName + " " + person.idValue + "</div>")
-                $('#content').append("<img src=" + person.picture + ">")
+                $('#content').append("<div>"  + person.name + "</div><div>" + person.gender + "</div><div>" + person.age + "</div><div>" + person.email + "</div><div>" + person.address + "</div><div>" + person.idName + "</div><div>" + person.idValue + "</div>")
+                $('#content').append("<a href='Detail.html?id='" + person.idValue + "' target='_self' ><img src=" + person.picture + "></a>")
                     console.log(element)
                 });
             })
