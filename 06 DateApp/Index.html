@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DateApp</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+            <div>
+                    <button ng-click="loadPersonList()" class="btn">LoadPersonList</button>
+                    <button ng-click="weird()" class="btn">Load</button>
+            </div>
+            <div>
+                    <div>
+                        <h1>Added by AngularJs</h1>
+                        <div data-ng-repeat="person in personList">
+                            <div>{{person.name}}</div>
+                            <div>{{person.gender}}</div>
+                            <div><a href="Detail.html?id=" + {{person.idValue}} target="self"><img src={{person.picture}}></a></div>
+                        </div>
+                    </div>
+            </div>
+            
+    </div>
+    <div id="content"></div>
+
+</body>
+</html>
