@@ -16,6 +16,9 @@
             <div>
                     <button ng-click="loadPersonList()" class="btn">LoadPersonList</button>
                     <button ng-click="weird()" class="btn">Load</button>
+                    <input type=radio name="gender" ng-model="isMaleSelected">Male</input>
+                    <input type=radio name="gender" ng-model="isFemaleSelected">Female</input>
+                    
             </div>
             <div>
                     <div>
@@ -23,7 +26,7 @@
                         <div data-ng-repeat="person in personList">
                             <div>{{person.name}}</div>
                             <div>{{person.gender}}</div>
-                            <div><a href="Detail.html?id=" + {{person.idValue}} target="_self"><img src={{person.picture}}></a></div>
+                            <div><a href="Detail.html?id=" + {{person.idValue}} + "target='_self'"><img src={{person.picture}}></a></div>
                         </div>
                     </div>
             </div>
